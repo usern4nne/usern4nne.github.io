@@ -391,7 +391,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    229
+                    358
                 </div>
                 
 
@@ -450,6 +450,23 @@ server-id=1
 
 //将以上两个内容添加至Master主机的my.cnf的[mysqld]配置中 保存重启MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://i.loli.net/2021/11/16/LGbhr19oRn5JefX.png" alt="serverid.png"></p>
+<h4 id="查看Master主机bin-log以及position"><a href="#查看Master主机bin-log以及position" class="headerlink" title="查看Master主机bin-log以及position"></a>查看Master主机bin-log以及position</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">MariaDB [(none)]&gt; show master status;
++-------------------+----------+--------------+------------------+
+| File              | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++-------------------+----------+--------------+------------------+
+| master-bin.000001 |      245 |              |                  |
++-------------------+----------+--------------+------------------+
+1 row in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="修改Slave主机my-cnf"><a href="#修改Slave主机my-cnf" class="headerlink" title="修改Slave主机my.cnf"></a>修改Slave主机my.cnf</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">在my.cnf文件中的[mysqld]配置中加入以下内容 serverID不可与其他主机重复
+  log-bin=mysql-bin
+  server-id=2
+然后重启MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="在Slave主机中配置连接Master主机"><a href="#在Slave主机中配置连接Master主机" class="headerlink" title="在Slave主机中配置连接Master主机"></a>在Slave主机中配置连接Master主机</h4><p>``` mysql<br>MariaDB [(none)]&gt; </p>
+<blockquote>
+<p>change master to master_host=’[MasterIP]’,master_user=’[MasterUser]’,master_password=’[MasterPassword]’,master_log_file=’master-bin.000001’,master_log_pos=245;<br>Query OK, 0 rows affected (0.01 sec)</p>
+</blockquote>
+<p>此处的master_log_file以及master_log_pos填写Master主机中运行show master status;得到的结果</p>
 
                 
             </div>
