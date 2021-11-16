@@ -245,15 +245,9 @@
 
 
 <script>
-    var items = ['2021/11/16/RlCrJTBkaP8teKZ.jpg','2021/11/16/SLkWg2mQbCPjrv5.jpg','2021/11/16/WQ8vDMBk5ySRzb2.jpg','2021/11/16/l5iVcMULEm6dFes.jpg','2021/11/16/Q7oj61cFvnUMdOX.jpg','2021/11/16/PfKTo6X7DJEpF12.jpg','2021/11/16/ZY1uSRQ3DnqOEhc.jpg']
-    var item = items[new Date().getDay()]
-
-
-
-
-    // 每天切换 banner 图.  Switch banner image every day.
-    // var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    var bannerUrl = "https://i.loli.net/" + item;
+    var banner_pics = ['2021/11/16/RlCrJTBkaP8teKZ.jpg','2021/11/16/SLkWg2mQbCPjrv5.jpg','2021/11/16/WQ8vDMBk5ySRzb2.jpg','2021/11/16/l5iVcMULEm6dFes.jpg','2021/11/16/Q7oj61cFvnUMdOX.jpg','2021/11/16/PfKTo6X7DJEpF12.jpg','2021/11/16/ZY1uSRQ3DnqOEhc.jpg']
+    var banner_pic = banner_pics[new Date().getDay()]
+    var bannerUrl = "https://i.loli.net/" + banner_pic;
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
