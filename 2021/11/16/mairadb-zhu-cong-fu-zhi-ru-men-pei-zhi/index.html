@@ -391,7 +391,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    375
+                    399
                 </div>
                 
 
@@ -468,9 +468,17 @@ Query OK, 0 rows affected (0.01 sec)
 
 此处的master_log_file以及master_log_pos填写Master主机中运行show master status;得到的结果<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="开启SQL线程"><a href="#开启SQL线程" class="headerlink" title="开启SQL线程"></a>开启SQL线程</h4><pre><code class="mysql">MariaDB [(none)]&gt; start slave;
+<h4 id="开启SQL线程"><a href="#开启SQL线程" class="headerlink" title="开启SQL线程"></a>开启SQL线程</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">MariaDB [(none)]&gt; start slave;
 Query OK, 0 rows affected (0.00 sec)
-</code></pre>
+
+查看SQL进程是否正常
+MariaDB [(none)]&gt; show slave status;
+
+Slave_IO_Running
+lave_SQL_Running
+均提示Yes为正常<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://i.loli.net/2021/11/16/rV9DXYMC56FB8wu.png" alt="7_UT_S6N82DGH__WYY_RJO6.png"></p>
 
                 
             </div>
