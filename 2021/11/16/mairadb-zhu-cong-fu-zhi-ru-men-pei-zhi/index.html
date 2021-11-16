@@ -391,7 +391,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    399
+                    405
                 </div>
                 
 
@@ -433,11 +433,11 @@ MariaDB [mysql]&gt; update user set Host = '%' where user = 'root';<span aria-hi
 <h4 id="刷新权限"><a href="#刷新权限" class="headerlink" title="刷新权限"></a>刷新权限</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">MariaDB [mysql]&gt; flush privileges;
 返回ERROR 1062无视即可<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h4 id="测试Slave是否可以正常访问Master"><a href="#测试Slave是否可以正常访问Master" class="headerlink" title="测试Slave是否可以正常访问Master"></a>测试Slave是否可以正常访问Master</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[root@mariadb-slave ~]# mysql -uroot -p -h[Master主机公网/VPC IP]
+<h4 id="测试Slave是否可以正常访问Master"><a href="#测试Slave是否可以正常访问Master" class="headerlink" title="测试Slave是否可以正常访问Master"></a>测试Slave是否可以正常访问Master</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@mariadb-slave ~<span class="token punctuation">]</span><span class="token comment"># mysql -uroot -p -h[Master主机公网/VPC IP]</span>
 Enter password: 
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 7
-Server version: 5.5.68-MariaDB MariaDB Server
+Welcome to the MariaDB monitor.  Commands end with <span class="token punctuation">;</span> or <span class="token punctuation">\</span>g.
+Your MariaDB connection <span class="token function">id</span> is <span class="token number">7</span>
+Server version: <span class="token number">5.5</span>.68-MariaDB MariaDB Server
 
 此时Slave主机可正常访问Master主机<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -445,10 +445,10 @@ Server version: 5.5.68-MariaDB MariaDB Server
 </p><p>需要添加的字段在[mysqld]配置中 直接追加到文件末尾会被追加到[mysqld_safe]配置中导致配置失败</p>
 </div>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">log-bin=master-bin
-server-id=1
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">log-bin<span class="token operator">=</span>master-bin
+server-id<span class="token operator">=</span><span class="token number">1</span>
 
-//将以上两个内容添加至Master主机的my.cnf的[mysqld]配置中 保存重启MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+//将以上两个内容添加至Master主机的my.cnf的<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>配置中 保存重启MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://i.loli.net/2021/11/16/LGbhr19oRn5JefX.png" alt="serverid.png"></p>
 <h4 id="查看Master主机bin-log以及position"><a href="#查看Master主机bin-log以及position" class="headerlink" title="查看Master主机bin-log以及position"></a>查看Master主机bin-log以及position</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">MariaDB [(none)]&gt; show master status;
 +-------------------+----------+--------------+------------------+
@@ -458,9 +458,9 @@ server-id=1
 +-------------------+----------+--------------+------------------+
 1 row in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="修改Slave主机my-cnf"><a href="#修改Slave主机my-cnf" class="headerlink" title="修改Slave主机my.cnf"></a>修改Slave主机my.cnf</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">在my.cnf文件中的[mysqld]配置中加入以下内容 serverID不可与其他主机重复
-  log-bin=mysql-bin
-  server-id=2
+<h4 id="修改Slave主机my-cnf"><a href="#修改Slave主机my-cnf" class="headerlink" title="修改Slave主机my.cnf"></a>修改Slave主机my.cnf</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">在my.cnf文件中的<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>配置中加入以下内容 serverID不可与其他主机重复
+  log-bin<span class="token operator">=</span>mysql-bin
+  server-id<span class="token operator">=</span><span class="token number">2</span>
 然后重启MariaDB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="在Slave主机中配置连接Master主机"><a href="#在Slave主机中配置连接Master主机" class="headerlink" title="在Slave主机中配置连接Master主机"></a>在Slave主机中配置连接Master主机</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">MariaDB [(none)]&gt; 
  &gt; change master to master_host='[MasterIP]',master_user='[MasterUser]',master_password='[MasterPassword]',master_log_file='master-bin.000001',master_log_pos=245;
@@ -479,6 +479,7 @@ lave_SQL_Running
 均提示Yes为正常<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://i.loli.net/2021/11/16/rV9DXYMC56FB8wu.png" alt="7_UT_S6N82DGH__WYY_RJO6.png"></p>
+<h4 id="测试主从复制"><a href="#测试主从复制" class="headerlink" title="测试主从复制"></a>测试主从复制</h4><p><img src="https://i.loli.net/2021/11/16/ajPDGz6nlEsoBR7.png" alt="1.png"><br><img src="https://i.loli.net/2021/11/16/m6oN5GVudpfT2nw.png" alt="2.png"><br><img src="https://i.loli.net/2021/11/16/ECUY4sxeoWIKabA.png" alt="3.png"></p>
 
                 
             </div>
