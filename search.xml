@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>MairaDB主从复制入门配置</title>
+      <link href="/2021/11/16/mairadb-zhu-cong-fu-zhi-ru-men-pei-zhi/"/>
+      <url>/2021/11/16/mairadb-zhu-cong-fu-zhi-ru-men-pei-zhi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="MariaDB-主从复制入门配置"><a href="#MariaDB-主从复制入门配置" class="headerlink" title="MariaDB 主从复制入门配置"></a>MariaDB 主从复制入门配置</h2><p>!!! note 提示<br>    此文章目前只做最简单的主从复制演示</p><h3 id="示例环境"><a href="#示例环境" class="headerlink" title="示例环境"></a>示例环境</h3><p>MriaDB 5.5.68 (Yum安装)<br>CentOS 7.5 X86_64</p><h3 id="配置命令"><a href="#配置命令" class="headerlink" title="配置命令"></a>配置命令</h3><h4 id="开启root用户远程访问"><a href="#开启root用户远程访问" class="headerlink" title="开启root用户远程访问"></a>开启root用户远程访问</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">MariaDB [(none)] &gt; use mysql;MariaDB [mysql]&gt; update user set Host = '%' where user = 'root';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="刷新权限"><a href="#刷新权限" class="headerlink" title="刷新权限"></a>刷新权限</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">MariaDB [mysql]&gt; flush privileges;返回ERROR 1062无视即可<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ceshi3</title>
       <link href="/2021/11/16/ceshi3/"/>
       <url>/2021/11/16/ceshi3/</url>
