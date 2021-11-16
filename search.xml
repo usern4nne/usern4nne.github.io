@@ -4,20 +4,28 @@
   
     
     <entry>
-      <title>s</title>
-      <link href="/2021/11/17/s/"/>
-      <url>/2021/11/17/s/</url>
+      <title>利用Mycat数据库中间件实现MariaDB读写分离</title>
+      <link href="/2021/11/17/li-yong-mycat-shu-ju-ku-zhong-jian-jian-shi-xian-mariadb-du-xie-fen-chi/"/>
+      <url>/2021/11/17/li-yong-mycat-shu-ju-ku-zhong-jian-jian-shi-xian-mariadb-du-xie-fen-chi/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="Mycat"><a href="#Mycat" class="headerlink" title="Mycat"></a>Mycat</h2>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> MariaDB </tag>
+            
+            <tag> Mycat </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>MairaDB主从复制入门配置1</title>
+      <title>MairaDB主从复制入门配置</title>
       <link href="/2021/11/16/mairadb-zhu-cong-fu-zhi-ru-men-pei-zhi/"/>
       <url>/2021/11/16/mairadb-zhu-cong-fu-zhi-ru-men-pei-zhi/</url>
       
